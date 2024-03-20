@@ -1,0 +1,85 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Focus by Jimi</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link rel="shortcut icon" href="https://focus.jimi.wtf/cdns/logo.png" type="image/png">
+
+    <meta property="og:title" content="Focus by Jimi" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://focus.jimi.wtf/" />
+    <meta property="og:image" content="https://focus.jimi.wtf/cdns/logo.png" />
+    <meta property="og:description" content="Tools to improve your focus, like pomodoro & white/brown/pink noise generation" />
+    <meta name="theme-color" content="#bbffb9">
+
+    <link rel="stylesheet" href="./styles/cards.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <div id="cards">
+        <div class="card" onclick="window.location.href = ('./pomodoro')">
+          <div class="card-content">
+            <div class="card-image">
+                <i class="fa-solid fa-hourglass"></i>
+            </div>
+            <div class="card-info-wrapper">
+              <div class="card-info">
+                <i class="fa-solid fa-hourglass"></i>
+                <div class="card-info-title">
+                  <h3>Pomodoro</h3>  
+                  <h4>Time management method: work 25 min, rest 5. Repeat.</h4>
+                </div>    
+              </div>
+            </div>
+          </div>
+        </div>
+        <div onclick="window.location.href = ('./noise')" class="card">
+          <div class="card-content">
+            <div class="card-image">
+                <i class="fa-solid fa-volume-high"></i>
+            </div>
+            <div class="card-info-wrapper">
+              <div class="card-info">
+                <i class="fa-solid fa-volume-high"></i>
+                <div class="card-info-title">
+                  <h3>Noise Generator</h3>  
+                  <h4>Background noise masks distractions, enhances focus, aids concentration during tasks.</h4>
+                </div>    
+              </div>  
+            </div>
+          </div>
+        </div>
+        <div onclick="window.location.href = ('https://ko-fi.com/jimiwtf')" class="card">
+          <div class="card-content">
+            <div class="card-image">
+              <i class="fa-solid fa-heart"></i>
+            </div>
+            <div class="card-info-wrapper">
+              <div class="card-info">
+                <i class="fa-solid fa-heart"></i>
+                <div class="card-info-title">
+                  <h3>Donate</h3>  
+                  <h4>If you enjoy these tools and want more, consider supporting me.</h4>
+                </div>    
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+</body>
+<script>
+    document.getElementById("cards").onmousemove = e => {
+    for(const card of document.getElementsByClassName("card")) {
+      const rect = card.getBoundingClientRect(),
+            x = e.clientX - rect.left,
+            y = e.clientY - rect.top;
+  
+      card.style.setProperty("--mouse-x", `${x}px`);
+      card.style.setProperty("--mouse-y", `${y}px`);
+    };
+}
+</script>
+</html>

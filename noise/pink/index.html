@@ -1,0 +1,86 @@
+<!DOCTYPE html><html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="https://focus.jimi.wtf/cdns/logo.png" />
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    
+    <link rel="stylesheet" href="https://focus.jimi.wtf/cdns/ruffpart_styles.css">
+    <script src="https://focus.jimi.wtf/scripts/ruffpart_script.js"></script>
+    <script src="https://focus.jimi.wtf/scripts/href.js"></script>
+    <script src="https://focus.jimi.wtf/scripts/alert.js"></script>
+    <script src="https://focus.jimi.wtf/scripts/appTitle.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/alpinejs/2.3.0/alpine-ie11.js"></script>
+  </head>
+  
+  <script src="https://focus.jimi.wtf/scripts/noise.js"></script>
+
+  <link rel="shortcut icon" href="https://focus.jimi.wtf/cdns/logo.png" type="image/png">
+
+    <meta property="og:title" content="Focus by Jimi" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://focus.jimi.wtf/" />
+    <meta property="og:image" content="https://focus.jimi.wtf/cdns/logo.png" />
+    <meta property="og:description" content="Tools to improve your focus, like pomodoro & white/brown/pink noise generation" />
+    <meta name="theme-color" content="#bbffb9">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js" integrity="sha512-3gJwYpMe3QewGELv8k/BX9vcqhryRdzRMxVfq6ngyWXwo03GFEzjsUm8Q7RZcHPHksttq7/GFoxjCVUjkjvPdw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  
+  <script>  
+    function app(){
+      $('body').animate({
+        opacity:0
+      }, 1000);
+  
+      setTimeout(() => {
+        window.location.href = ('https://focus.jimi.wtf/noise')
+      }, 1500);
+    }
+
+    function hideHeadphonesMessage(dontremind){
+        if(dontremind === true){
+            localStorage.setItem("Prefer_HEADPHONESMESSAGECLOSED", "true")
+        }
+
+        $('#headphonesmessage').animate({opacity:0}, 'slow')
+        setTimeout(() => {
+            document.getElementById("headphonesmessage").style.display = `none`
+        }, 1000);
+    }
+
+    setTimeout(() => {
+        if(localStorage.getItem("Prefer_HEADPHONESMESSAGECLOSED") === "true"){
+            
+        } else {
+          document.getElementById("headphonesmessage").style.display = "flex"
+        }
+    }, 200);
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/tone/14.8.49/Tone.js" integrity="sha512-jduERlz7En1IUZR54bqzpNI64AbffZWR//KJgF71SJ8D8/liKFZ+s1RxmUmB+bhCnIfzebdZsULwOrbVB5f3nQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+  <body class="gray" onload="changeAppTitle('noise')" style="animation:fadeIn 2s">
+    <section id="headphonesmessage" class="hidden fixed flex items-center justify-between max-w-4xl p-4 mx-auto bg-white border border-gray-200 shadow-md left-12 bottom-16 md:gap-x-4rounded-2xl">
+        <p class="text-base text-gray-600"><i class="twa twa-headphones"></i> Without headphones, you might not experience the real noise benefits</p>
+        &nbsp;&nbsp;
+        <p onclick="hideHeadphonesMessage(true)" class="text-base text-white click rounded-lg bg-black min-h-7" style="padding-left: 5px; padding-right: 5px;">Don't remind me again</p>
+        &nbsp;&nbsp;
+        <button onclick="hideHeadphonesMessage(false)" style="padding:5px" class="rounded-lg bg-black flex items-center justify-center text-white transition-colors duration-300 shrink-0 w-7 h-7">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5">
+                <path d="M6.28 5.22a.75.75 0 00-1.06 1.06L8.94 10l-3.72 3.72a.75.75 0 101.06 1.06L10 11.06l3.72 3.72a.75.75 0 101.06-1.06L11.06 10l3.72-3.72a.75.75 0 00-1.06-1.06L10 8.94 6.28 5.22z" />
+            </svg>
+        </button>
+      </section>
+    <div style="position: absolute;top: 50%;left: 50%;transform: translate(-50%, -50%); animation:pulse 2s infinite" class="text-center">
+        <h1 id="text" class="font-pt-serif text-7xl font-bold mb-7 prevent-select opacity-0 text-white">noise</h1>
+        <h1 id="leave" class="font-pt-serif text-3xl font-bold mb-7 prevent-select opacity-0 text-white">press 'escape' to quit</h1>
+    </div>
+    <section id="section" class="bg-secondary flex justify-center items-center min-h-screen" style="flex-direction: column; padding:10%">
+      <h1 id="title" class="font-pt-serif text-7xl font-bold mb-7 prevent-select">
+        pink noise
+      </h1>
+      <h1 onclick="noise_start('pink')" class="click font-pt-serif text-3xl font-bold mb-7 growing-underline">
+        begin session
+      </h1>
+    </section>
+
+    <audio id="click" src="https://focus.jimi.wtf/cdns/click.mp3"></audio>
+  </html>

@@ -1,0 +1,85 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>noise / Focus by Jimi</title>
+
+    <script src="../cdns/tailwind.js"></script>
+
+    <link rel="shortcut icon" href="https://focus.jimi.wtf/cdns/logo.png" type="image/png">
+
+    <meta property="og:title" content="Focus by Jimi" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://focus.jimi.wtf/" />
+    <meta property="og:image" content="https://focus.jimi.wtf/cdns/logo.png" />
+    <meta property="og:description" content="Tools to improve your focus, like pomodoro & white/brown/pink noise generation" />
+    <meta name="theme-color" content="#bbffb9">
+
+    <link rel="stylesheet" href="../styles/cards.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <div id="cards">
+        <div class="card" onclick="window.location.href = ('./white')">
+          <div class="card-content">
+            <div class="card-image">
+                <i class="fa-solid fa-wind"></i>
+            </div>
+            <div class="card-info-wrapper">
+              <div class="card-info">
+                <i class="fa-solid fa-wind"></i>
+                <div class="card-info-title">
+                  <h3>White</h3>  
+                  <h4>For sustained attention and concentration</h4>
+                </div>    
+              </div>
+            </div>
+          </div>
+        </div>
+        <div onclick="window.location.href = ('./brown')" class="card">
+          <div class="card-content">
+            <div class="card-image">
+                <i class="fa-solid fa-person-praying"></i>
+            </div>
+            <div class="card-info-wrapper">
+              <div class="card-info">
+                <i class="fa-solid fa-person-praying"></i>
+                <div class="card-info-title">
+                  <h3>Brown</h3>  
+                  <h4>For tasks that require relaxation, deep concentration, or meditation</h4>
+                </div>    
+              </div>  
+            </div>
+          </div>
+        </div>
+        <div onclick="window.location.href = ('./pink')" class="card">
+          <div class="card-content">
+            <div class="card-image">
+                <i class="fa-solid fa-brain"></i>
+            </div>
+            <div class="card-info-wrapper">
+              <div class="card-info">
+                <i class="fa-solid fa-brain"></i>
+                <div class="card-info-title">
+                  <h3>Pink</h3>  
+                  <h4>For tasks that require creativity, problem-solving, and brainstorming</h4>
+                </div>    
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+</body>
+<script>
+    document.getElementById("cards").onmousemove = e => {
+    for(const card of document.getElementsByClassName("card")) {
+      const rect = card.getBoundingClientRect(),
+            x = e.clientX - rect.left,
+            y = e.clientY - rect.top;
+  
+      card.style.setProperty("--mouse-x", `${x}px`);
+      card.style.setProperty("--mouse-y", `${y}px`);
+    };
+}
+</script>
+</html>
